@@ -1,0 +1,178 @@
+0235 = UAE tax number.,0235 = الرقم الضريبي في الإمارات.
+1. Generate Certificate Request,1. إنشاء طلب الشهادة
+2. Get Compliance Certificate,2. الحصول على شهادة الامتثال
+3. Run Compliance Checks,3. تشغيل فحوصات الامتثال
+4. Get Production Certificate,4. الحصول على شهادة الإنتاج
+API Address,عنوان الـ API
+Accepted,مقبولة
+Accepted E-Invoices,فواتير إلكترونية مقبولة
+Actions,إجراءات
+Answer,الرد
+Attempts,المحاولات
+Auto,تلقائي
+"Auto: standard (cleared) when the customer has a tax number, otherwise simplified (reported).",تلقائي: ضريبية (مُعتمدة قبل الإصدار) لو العميل له رقم ضريبي، وإلا مبسطة (يتم الإبلاغ عنها).
+Awaiting Submission,في انتظار الإرسال
+B,B
+"B business, P person, F foreigner.",B شركة، P فرد، F أجنبي.
+Basic,Basic
+Bearer Token,Bearer Token
+Blank: the item code is used.,فاضي: يُستخدم كود الصنف.
+Body Sent to the Provider,المحتوى المُرسل للمزود
+Body Template (Jinja),قالب المحتوى (Jinja)
+Branch Code,كود الفرع
+Building No.,رقم المبنى
+Business,شركة
+Business Category,نشاط الشركة
+Cancelled,ملغاة
+Certificate Request (CSR),طلب الشهادة (CSR)
+Check Status,تحقق من الحالة
+City / District,المدينة / الحي
+Client Credentials,Client Credentials
+Client ID / User,معرّف العميل / المستخدم
+Client Secret / Token / Password,السر / التوكن / كلمة المرور
+Commercial Register / National ID,السجل التجاري / الرقم القومي
+Commercial Register / Trade License No.,السجل التجاري / رقم الرخصة التجارية
+Company,الشركة
+Compliance Certificate,شهادة الامتثال
+Compliance Request ID,رقم طلب الامتثال
+Compliance Secret,سر الامتثال
+Connection,الاتصال
+Connection Name,اسم الاتصال
+Content-Type,Content-Type
+Country Code,كود الدولة
+Credit Notes,إشعارات دائنة
+Custom API,API مخصص
+Custom Header,Header مخصص
+Customer,العميل
+Date,التاريخ
+Device Name (Common Name),اسم الجهاز (Common Name)
+Device Serial (EGS),رقم الجهاز التسلسلي (EGS)
+Do Not Send to the Tax Authority,لا تُرسل للجهة الضريبية
+Document Hash,بصمة المستند
+Document ID (UUID),معرّف المستند (UUID)
+Document Signing,توقيع المستند
+"Dotted path, e.g. status or data.accepted. Empty = any 2xx is success.",مسار بنقاط، مثل status أو data.accepted. فاضي = أي رد 2xx يعتبر نجاح.
+E-Invoice Buyer Type,نوع المشتري في الفاتورة الإلكترونية
+E-Invoice Code Type,نوع كود الصنف
+E-Invoice Connection,اتصال الفاتورة الإلكترونية
+E-Invoice ID,معرّف الفاتورة الإلكترونية
+E-Invoice Item Code,كود الصنف للفاتورة الإلكترونية
+E-Invoice Manager,مدير الفاتورة الإلكترونية
+E-Invoice Status,حالة الفاتورة الإلكترونية
+E-Invoice Submission,إرسال فاتورة إلكترونية
+E-Invoice Unit Code,كود الوحدة للفاتورة الإلكترونية
+E-Invoice: {0},فاتورة إلكترونية: {0}
+E-Invoices by Status,الفواتير الإلكترونية حسب الحالة
+E-Invoices by System,الفواتير الإلكترونية حسب المنظومة
+E-Invoicing,الفاتورة الإلكترونية
+Egypt ETA,مصر - مصلحة الضرائب (ETA)
+Egypt: EGS (registered with the tax authority) or GS1.,مصر: EGS (مسجل لدى مصلحة الضرائب) أو GS1.
+Egypt: Tax Authority,مصر: مصلحة الضرائب
+Enabled,مفعّل
+Environment,البيئة
+Error,الخطأ
+Error Field in the Answer,حقل الخطأ في الرد
+External Signing Service,خدمة توقيع خارجية
+Extra Headers (JSON),Headers إضافية (JSON)
+F,F
+Failed,فشلت
+Failed E-Invoices,فواتير إلكترونية فشلت
+"For Custom Header, e.g. X-Api-Key.",للـ Header المخصص، مثل X-Api-Key.
+Foreigner,أجنبي
+Generate the certificate request and enter the one-time code first.,أنشئ طلب الشهادة وأدخل الكود المؤقت أولاً.
+Governorate / Region,المحافظة / المنطقة
+Hash of the Last Invoice,بصمة آخر فاتورة
+Header Name,اسم الـ Header
+Home,الرئيسية
+Invoice Counter,عداد الفواتير
+Invoice Kind,نوع الفاتورة
+Invoice Type Flags,علامات نوع الفاتورة
+Issuer Type,نوع المُصدر
+JSON with XML inside,JSON بداخله XML
+Last Attempt,آخر محاولة
+Leave empty to use the authority's standard address for the environment.,اتركه فاضي لاستخدام العنوان الرسمي للجهة لهذه البيئة.
+Login (Identity) Address,عنوان تسجيل الدخول (Identity)
+Long ID / Reference,المعرّف الطويل / المرجع
+Method,الطريقة
+Neighbourhood,الحي
+No enabled e-invoice connection for the company of this invoice.,لا يوجد اتصال فاتورة إلكترونية مفعّل لشركة هذه الفاتورة.
+No enabled e-invoice connection for this company.,لا يوجد اتصال فاتورة إلكترونية مفعّل لهذه الشركة.
+None,بدون
+None (test only),بدون (للتجربة فقط)
+Onboarding Log,سجل التفعيل
+One-time Code from the Portal (OTP),الكود المؤقت من البوابة (OTP)
+Organization Unit / Branch Name,الوحدة التنظيمية / اسم الفرع
+P,P
+POST,POST
+PUT,PUT
+Pending,قيد الانتظار
+Peppol Scheme ID,معرّف مخطط Peppol
+Person,فرد
+Postal Code,الرمز البريدي
+Preview E-Invoice,معاينة الفاتورة الإلكترونية
+Private Key,المفتاح الخاص
+Production,الإنتاج (حقيقي)
+Production Certificate,شهادة الإنتاج
+Production Secret,سر الإنتاج
+QR Code Data,بيانات رمز QR
+Queued,تمت الجدولة
+"Receives {canonical, sha256} and returns {signature: base64}. See the install guide.","يستقبل {canonical, sha256} ويرجع {signature: base64}. راجع دليل التثبيت."
+Reference Field in the Answer,حقل المرجع في الرد
+Registered Address (one line),العنوان المسجل (سطر واحد)
+Registration No. of the Taxpayer (only when an intermediary),رقم تسجيل المكلف (فقط لو وسيط)
+Rejected,مرفوضة
+Rejected E-Invoices,فواتير إلكترونية مرفوضة
+Reports,التقارير
+Request,الطلب
+"Request Template (Custom API, and optional for UAE)",قالب الطلب (API مخصص، واختياري للإمارات)
+Sales Invoice,فاتورة مبيعات
+Saudi Arabia: Certificates,السعودية: الشهادات
+Saudi Arabia: Invoice Chain,السعودية: سلسلة الفواتير
+Saudi Arabia: ZATCA,السعودية: هيئة الزكاة والضريبة (ZATCA)
+Saudi Onboarding,تفعيل السعودية
+Saudi ZATCA,السعودية - فاتورة (ZATCA)
+Seller (this company on the tax system),البائع (هذه الشركة على المنظومة الضريبية)
+Send Again,أرسل مرة أخرى
+Send Automatically When the Invoice Is Submitted,أرسل تلقائياً عند اعتماد الفاتورة
+Send to the Tax Authority,أرسل للجهة الضريبية
+Sent as the onbehalfof header.,يُرسل في Header اسمه onbehalfof.
+"Sent, Awaiting Validation",مُرسلة وتنتظر التحقق
+Set the body template on the connection.,حدد قالب المحتوى في الاتصال.
+Setup,الإعداد
+Sign-in Method,طريقة تسجيل الدخول
+Signing Service Address,عنوان خدمة التوقيع
+Signing Service Key,مفتاح خدمة التوقيع
+Simplified,مبسطة
+Simulation,محاكاة
+Standard,ضريبية
+Status,الحالة
+Street,الشارع
+Submissions,الإرسالات
+Submitted,مُرسلة
+Success Field in the Answer,حقل النجاح في الرد
+Success Value,قيمة النجاح
+System,المنظومة
+T1 = VAT.,T1 = ضريبة القيمة المضافة.
+Tax Authority Reference,مرجع الجهة الضريبية
+Tax Registration / VAT / TIN,رقم التسجيل الضريبي
+Tax Subtype Code,كود النوع الفرعي للضريبة
+Tax Type Code,كود نوع الضريبة
+Taxpayer Activity Code,كود نشاط المكلف
+Test,تجريبي
+Test Connection,اختبر الاتصال
+Test: the authority's pre-production or developer sandbox. Simulation: Saudi simulation portal. Production: real invoices.,تجريبي: بيئة الاختبار عند الجهة. محاكاة: بوابة المحاكاة السعودية. الإنتاج: فواتير حقيقية.
+The authority requires a digital seal (CAdES-BES) on every invoice.,الجهة بتطلب ختم رقمي (CAdES-BES) على كل فاتورة.
+"The tax authority did not accept the cancellation, so the invoice was not cancelled: {0}",الجهة الضريبية لم تقبل الإلغاء، فالفاتورة لم تُلغَ: {0}
+This invoice was sent to the tax authority and cannot be cancelled. Issue a credit note instead.,هذه الفاتورة اتبعتت للجهة الضريبية ولا يمكن إلغاؤها. أصدر إشعاراً دائناً بدلاً من ذلك.
+"Two letters, e.g. EG, SA, AE.",حرفان، مثل EG وSA وAE.
+UAE PINT-AE,الإمارات - PINT-AE
+UAE: Service Provider,الإمارات: مزود الخدمة
+Unsent E-Invoices,فواتير إلكترونية غير مُرسلة
+Valid for a short time. Press Get Compliance Certificate right after entering it.,صالح لوقت قصير. اضغط الحصول على شهادة الامتثال بعد إدخاله مباشرة.
+"Variables: inv (the invoice), cfg. For UAE also xml and xml_b64. Use {{ inv | tojson }} to send the whole invoice.",المتغيرات: inv (الفاتورة) وcfg. وللإمارات كمان xml وxml_b64. استخدم {{ inv | tojson }} لإرسال الفاتورة كلها.
+What Was Sent,ما تم إرساله
+XML,XML
+You are not allowed to do this.,غير مسموح لك بهذا الإجراء.
+Zero-rate Reason,سبب نسبة الصفر
+Zero-rate Reason Code,كود سبب نسبة الصفر
+"Last Error","آخر خطأ"

@@ -1,0 +1,580 @@
+{
+ "actions": [],
+ "creation": "2026-11-22 08:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "connection_name",
+  "enabled",
+  "company",
+  "cb0",
+  "system",
+  "environment",
+  "auto_submit",
+  "sb_seller",
+  "tax_id",
+  "reg_no",
+  "branch_id",
+  "cb1",
+  "country",
+  "governate",
+  "city",
+  "street",
+  "cb2",
+  "building",
+  "postal",
+  "district",
+  "sb_api",
+  "api_url",
+  "identity_url",
+  "cb3",
+  "auth_type",
+  "auth_user",
+  "auth_secret",
+  "auth_header",
+  "sb_eg",
+  "activity_code",
+  "issuer_type",
+  "on_behalf_of",
+  "cb4",
+  "tax_type",
+  "tax_subtype",
+  "signer",
+  "signer_url",
+  "signer_token",
+  "sb_sa",
+  "invoice_kind",
+  "egs_serial",
+  "org_unit",
+  "common_name",
+  "cb5",
+  "industry",
+  "full_address",
+  "zero_reason_code",
+  "zero_reason",
+  "sb_sa2",
+  "zatca_otp",
+  "csr",
+  "private_key",
+  "cb6",
+  "compliance_token",
+  "compliance_secret",
+  "compliance_request_id",
+  "production_token",
+  "production_secret",
+  "sb_sa3",
+  "icv",
+  "last_hash",
+  "onboarding_status",
+  "sb_ae",
+  "endpoint_scheme",
+  "type_flags",
+  "payload_format",
+  "sb_cu",
+  "http_method",
+  "content_type",
+  "headers_json",
+  "body_template",
+  "cb7",
+  "ok_path",
+  "ok_value",
+  "uuid_path",
+  "error_path"
+ ],
+ "fields": [
+  {
+   "fieldname": "connection_name",
+   "fieldtype": "Data",
+   "label": "Connection Name",
+   "reqd": 1,
+   "unique": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Enabled",
+   "default": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "cb0",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "system",
+   "fieldtype": "Select",
+   "label": "System",
+   "options": "Egypt ETA\nSaudi ZATCA\nUAE PINT-AE\nCustom API",
+   "reqd": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "environment",
+   "fieldtype": "Select",
+   "label": "Environment",
+   "options": "Test\nSimulation\nProduction",
+   "default": "Test",
+   "reqd": 1,
+   "in_list_view": 1,
+   "description": "Test: the authority's pre-production or developer sandbox. Simulation: Saudi simulation portal. Production: real invoices."
+  },
+  {
+   "fieldname": "auto_submit",
+   "fieldtype": "Check",
+   "label": "Send Automatically When the Invoice Is Submitted",
+   "default": 1
+  },
+  {
+   "fieldname": "sb_seller",
+   "fieldtype": "Section Break",
+   "label": "Seller (this company on the tax system)"
+  },
+  {
+   "fieldname": "tax_id",
+   "fieldtype": "Data",
+   "label": "Tax Registration / VAT / TIN",
+   "reqd": 1
+  },
+  {
+   "fieldname": "reg_no",
+   "fieldtype": "Data",
+   "label": "Commercial Register / Trade License No."
+  },
+  {
+   "fieldname": "branch_id",
+   "fieldtype": "Data",
+   "label": "Branch Code",
+   "default": "0"
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "country",
+   "fieldtype": "Data",
+   "label": "Country Code",
+   "default": "EG",
+   "description": "Two letters, e.g. EG, SA, AE."
+  },
+  {
+   "fieldname": "governate",
+   "fieldtype": "Data",
+   "label": "Governorate / Region"
+  },
+  {
+   "fieldname": "city",
+   "fieldtype": "Data",
+   "label": "City / District"
+  },
+  {
+   "fieldname": "street",
+   "fieldtype": "Data",
+   "label": "Street"
+  },
+  {
+   "fieldname": "cb2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "building",
+   "fieldtype": "Data",
+   "label": "Building No."
+  },
+  {
+   "fieldname": "postal",
+   "fieldtype": "Data",
+   "label": "Postal Code"
+  },
+  {
+   "fieldname": "district",
+   "fieldtype": "Data",
+   "label": "Neighbourhood"
+  },
+  {
+   "fieldname": "sb_api",
+   "fieldtype": "Section Break",
+   "label": "Connection"
+  },
+  {
+   "fieldname": "api_url",
+   "fieldtype": "Data",
+   "label": "API Address",
+   "description": "Leave empty to use the authority's standard address for the environment."
+  },
+  {
+   "fieldname": "identity_url",
+   "fieldtype": "Data",
+   "label": "Login (Identity) Address",
+   "depends_on": "eval:doc.system=='Egypt ETA' || doc.system=='Custom API'"
+  },
+  {
+   "fieldname": "cb3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "auth_type",
+   "fieldtype": "Select",
+   "label": "Sign-in Method",
+   "options": "None\nBearer Token\nBasic\nCustom Header\nClient Credentials",
+   "default": "None",
+   "depends_on": "eval:doc.system=='UAE PINT-AE' || doc.system=='Custom API'"
+  },
+  {
+   "fieldname": "auth_user",
+   "fieldtype": "Data",
+   "label": "Client ID / User",
+   "depends_on": "eval:doc.system=='Egypt ETA' || doc.system=='UAE PINT-AE' || doc.system=='Custom API'"
+  },
+  {
+   "fieldname": "auth_secret",
+   "fieldtype": "Password",
+   "label": "Client Secret / Token / Password",
+   "depends_on": "eval:doc.system=='Egypt ETA' || doc.system=='UAE PINT-AE' || doc.system=='Custom API'"
+  },
+  {
+   "fieldname": "auth_header",
+   "fieldtype": "Data",
+   "label": "Header Name",
+   "depends_on": "eval:doc.system=='UAE PINT-AE' || doc.system=='Custom API'",
+   "description": "For Custom Header, e.g. X-Api-Key."
+  },
+  {
+   "fieldname": "sb_eg",
+   "fieldtype": "Section Break",
+   "label": "Egypt: Tax Authority",
+   "depends_on": "eval:doc.system=='Egypt ETA'"
+  },
+  {
+   "fieldname": "activity_code",
+   "fieldtype": "Data",
+   "label": "Taxpayer Activity Code"
+  },
+  {
+   "fieldname": "issuer_type",
+   "fieldtype": "Select",
+   "label": "Issuer Type",
+   "options": "B\nP\nF",
+   "default": "B",
+   "description": "B business, P person, F foreigner."
+  },
+  {
+   "fieldname": "on_behalf_of",
+   "fieldtype": "Data",
+   "label": "Registration No. of the Taxpayer (only when an intermediary)",
+   "description": "Sent as the onbehalfof header."
+  },
+  {
+   "fieldname": "cb4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "tax_type",
+   "fieldtype": "Data",
+   "label": "Tax Type Code",
+   "default": "T1",
+   "description": "T1 = VAT."
+  },
+  {
+   "fieldname": "tax_subtype",
+   "fieldtype": "Data",
+   "label": "Tax Subtype Code",
+   "default": "V009"
+  },
+  {
+   "fieldname": "signer",
+   "fieldtype": "Select",
+   "label": "Document Signing",
+   "options": "External Signing Service\nNone (test only)",
+   "default": "External Signing Service",
+   "description": "The authority requires a digital seal (CAdES-BES) on every invoice."
+  },
+  {
+   "fieldname": "signer_url",
+   "fieldtype": "Data",
+   "label": "Signing Service Address",
+   "description": "Receives {canonical, sha256} and returns {signature: base64}. See the install guide."
+  },
+  {
+   "fieldname": "signer_token",
+   "fieldtype": "Password",
+   "label": "Signing Service Key"
+  },
+  {
+   "fieldname": "sb_sa",
+   "fieldtype": "Section Break",
+   "label": "Saudi Arabia: ZATCA",
+   "depends_on": "eval:doc.system=='Saudi ZATCA'"
+  },
+  {
+   "fieldname": "invoice_kind",
+   "fieldtype": "Select",
+   "label": "Invoice Kind",
+   "options": "Auto\nStandard\nSimplified",
+   "default": "Auto",
+   "description": "Auto: standard (cleared) when the customer has a tax number, otherwise simplified (reported)."
+  },
+  {
+   "fieldname": "egs_serial",
+   "fieldtype": "Data",
+   "label": "Device Serial (EGS)"
+  },
+  {
+   "fieldname": "org_unit",
+   "fieldtype": "Data",
+   "label": "Organization Unit / Branch Name"
+  },
+  {
+   "fieldname": "common_name",
+   "fieldtype": "Data",
+   "label": "Device Name (Common Name)"
+  },
+  {
+   "fieldname": "cb5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "industry",
+   "fieldtype": "Data",
+   "label": "Business Category"
+  },
+  {
+   "fieldname": "full_address",
+   "fieldtype": "Data",
+   "label": "Registered Address (one line)"
+  },
+  {
+   "fieldname": "zero_reason_code",
+   "fieldtype": "Data",
+   "label": "Zero-rate Reason Code",
+   "default": "VATEX-SA-OOS"
+  },
+  {
+   "fieldname": "zero_reason",
+   "fieldtype": "Data",
+   "label": "Zero-rate Reason",
+   "default": "Out of scope"
+  },
+  {
+   "fieldname": "sb_sa2",
+   "fieldtype": "Section Break",
+   "label": "Saudi Arabia: Certificates",
+   "depends_on": "eval:doc.system=='Saudi ZATCA'"
+  },
+  {
+   "fieldname": "zatca_otp",
+   "fieldtype": "Data",
+   "label": "One-time Code from the Portal (OTP)",
+   "description": "Valid for a short time. Press Get Compliance Certificate right after entering it."
+  },
+  {
+   "fieldname": "csr",
+   "fieldtype": "Long Text",
+   "label": "Certificate Request (CSR)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "private_key",
+   "fieldtype": "Password",
+   "label": "Private Key",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "compliance_token",
+   "fieldtype": "Password",
+   "label": "Compliance Certificate",
+   "read_only": 1
+  },
+  {
+   "fieldname": "compliance_secret",
+   "fieldtype": "Password",
+   "label": "Compliance Secret",
+   "read_only": 1
+  },
+  {
+   "fieldname": "compliance_request_id",
+   "fieldtype": "Data",
+   "label": "Compliance Request ID",
+   "read_only": 1
+  },
+  {
+   "fieldname": "production_token",
+   "fieldtype": "Password",
+   "label": "Production Certificate",
+   "read_only": 1
+  },
+  {
+   "fieldname": "production_secret",
+   "fieldtype": "Password",
+   "label": "Production Secret",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sb_sa3",
+   "fieldtype": "Section Break",
+   "label": "Saudi Arabia: Invoice Chain",
+   "depends_on": "eval:doc.system=='Saudi ZATCA'"
+  },
+  {
+   "fieldname": "icv",
+   "fieldtype": "Int",
+   "label": "Invoice Counter",
+   "read_only": 1,
+   "default": 0
+  },
+  {
+   "fieldname": "last_hash",
+   "fieldtype": "Data",
+   "label": "Hash of the Last Invoice",
+   "read_only": 1
+  },
+  {
+   "fieldname": "onboarding_status",
+   "fieldtype": "Small Text",
+   "label": "Onboarding Log",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sb_ae",
+   "fieldtype": "Section Break",
+   "label": "UAE: Service Provider",
+   "depends_on": "eval:doc.system=='UAE PINT-AE'"
+  },
+  {
+   "fieldname": "endpoint_scheme",
+   "fieldtype": "Data",
+   "label": "Peppol Scheme ID",
+   "default": "0235",
+   "description": "0235 = UAE tax number."
+  },
+  {
+   "fieldname": "type_flags",
+   "fieldtype": "Data",
+   "label": "Invoice Type Flags",
+   "default": "00000000"
+  },
+  {
+   "fieldname": "payload_format",
+   "fieldtype": "Select",
+   "label": "Body Sent to the Provider",
+   "options": "XML\nJSON with XML inside",
+   "default": "XML"
+  },
+  {
+   "fieldname": "sb_cu",
+   "fieldtype": "Section Break",
+   "label": "Request Template (Custom API, and optional for UAE)",
+   "depends_on": "eval:doc.system=='UAE PINT-AE' || doc.system=='Custom API'"
+  },
+  {
+   "fieldname": "http_method",
+   "fieldtype": "Select",
+   "label": "Method",
+   "options": "POST\nPUT",
+   "default": "POST"
+  },
+  {
+   "fieldname": "content_type",
+   "fieldtype": "Data",
+   "label": "Content-Type",
+   "default": "application/json"
+  },
+  {
+   "fieldname": "headers_json",
+   "fieldtype": "Code",
+   "label": "Extra Headers (JSON)",
+   "options": "JSON"
+  },
+  {
+   "fieldname": "body_template",
+   "fieldtype": "Code",
+   "label": "Body Template (Jinja)",
+   "options": "Jinja",
+   "description": "Variables: inv (the invoice), cfg. For UAE also xml and xml_b64. Use {{ inv | tojson }} to send the whole invoice."
+  },
+  {
+   "fieldname": "cb7",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "ok_path",
+   "fieldtype": "Data",
+   "label": "Success Field in the Answer",
+   "description": "Dotted path, e.g. status or data.accepted. Empty = any 2xx is success."
+  },
+  {
+   "fieldname": "ok_value",
+   "fieldtype": "Data",
+   "label": "Success Value",
+   "default": "true"
+  },
+  {
+   "fieldname": "uuid_path",
+   "fieldtype": "Data",
+   "label": "Reference Field in the Answer"
+  },
+  {
+   "fieldname": "error_path",
+   "fieldtype": "Data",
+   "label": "Error Field in the Answer"
+  }
+ ],
+ "links": [],
+ "modified": "2026-11-22 08:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "E-Invoicing",
+ "name": "E-Invoice Connection",
+ "owner": "Administrator",
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "permissions": [
+  {
+   "role": "E-Invoice Manager",
+   "read": 1,
+   "report": 1,
+   "print": 1,
+   "export": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1
+  },
+  {
+   "role": "Accounts Manager",
+   "read": 1,
+   "report": 1,
+   "print": 1,
+   "export": 1
+  },
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "report": 1,
+   "print": 1,
+   "export": 1
+  }
+ ],
+ "autoname": "field:connection_name",
+ "icon": "fa fa-plug",
+ "title_field": "connection_name",
+ "track_changes": 1,
+ "allow_rename": 0
+}

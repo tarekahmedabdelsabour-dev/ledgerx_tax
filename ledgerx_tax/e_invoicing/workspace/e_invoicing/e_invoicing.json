@@ -1,0 +1,151 @@
+{
+ "charts": [
+  {
+   "chart_name": "E-Invoices by Status",
+   "label": "E-Invoices by Status"
+  },
+  {
+   "chart_name": "E-Invoices by System",
+   "label": "E-Invoices by System"
+  }
+ ],
+ "content": "[{\"id\": \"e6222eba8e\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h4\\\"><b>E-Invoicing</b></span>\", \"col\": 12}}, {\"id\": \"065ae7450f\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"E-Invoice Submission\", \"col\": 3}}, {\"id\": \"faa595f8ed\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"E-Invoice Connection\", \"col\": 3}}, {\"id\": \"9d0750cb4e\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"Awaiting Submission\", \"col\": 3}}, {\"id\": \"ffa82c6d76\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"Sent, Awaiting Validation\", \"col\": 3}}, {\"id\": \"1adaf28702\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"Accepted E-Invoices\", \"col\": 3}}, {\"id\": \"96f83b88d0\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"Rejected E-Invoices\", \"col\": 3}}, {\"id\": \"1e8685a114\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"Failed E-Invoices\", \"col\": 3}}, {\"id\": \"61c88f44bc\", \"type\": \"chart\", \"data\": {\"chart_name\": \"E-Invoices by Status\", \"col\": 6}}, {\"id\": \"90cb9d9517\", \"type\": \"chart\", \"data\": {\"chart_name\": \"E-Invoices by System\", \"col\": 6}}, {\"id\": \"07efe5dc0b\", \"type\": \"card\", \"data\": {\"card_name\": \"Submissions\", \"col\": 4}}, {\"id\": \"4a59086f94\", \"type\": \"card\", \"data\": {\"card_name\": \"Reports\", \"col\": 4}}, {\"id\": \"57826e9ec5\", \"type\": \"card\", \"data\": {\"card_name\": \"Setup\", \"col\": 4}}]",
+ "creation": "2026-11-22 09:00:00.000000",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 1,
+ "icon": "file-check",
+ "idx": 1,
+ "is_hidden": 0,
+ "label": "E-Invoicing",
+ "links": [
+  {
+   "type": "Card Break",
+   "label": "Submissions",
+   "hidden": 0,
+   "is_query_report": 0,
+   "link_count": 3,
+   "onboard": 0
+  },
+  {
+   "type": "Link",
+   "label": "E-Invoice Submission",
+   "link_type": "DocType",
+   "link_to": "E-Invoice Submission",
+   "hidden": 0,
+   "is_query_report": 0,
+   "onboard": 0,
+   "dependencies": "",
+   "only_for": ""
+  },
+  {
+   "type": "Link",
+   "label": "Sales Invoice",
+   "link_type": "DocType",
+   "link_to": "Sales Invoice",
+   "hidden": 0,
+   "is_query_report": 0,
+   "onboard": 0,
+   "dependencies": "",
+   "only_for": ""
+  },
+  {
+   "type": "Link",
+   "label": "Credit Notes",
+   "link_type": "DocType",
+   "link_to": "Sales Invoice",
+   "hidden": 0,
+   "is_query_report": 0,
+   "onboard": 0,
+   "dependencies": "",
+   "only_for": ""
+  },
+  {
+   "type": "Card Break",
+   "label": "Reports",
+   "hidden": 0,
+   "is_query_report": 0,
+   "link_count": 1,
+   "onboard": 0
+  },
+  {
+   "type": "Link",
+   "label": "Unsent E-Invoices",
+   "link_type": "Report",
+   "link_to": "Unsent E-Invoices",
+   "hidden": 0,
+   "is_query_report": 1,
+   "onboard": 0,
+   "dependencies": "",
+   "only_for": ""
+  },
+  {
+   "type": "Card Break",
+   "label": "Setup",
+   "hidden": 0,
+   "is_query_report": 0,
+   "link_count": 1,
+   "onboard": 0
+  },
+  {
+   "type": "Link",
+   "label": "E-Invoice Connection",
+   "link_type": "DocType",
+   "link_to": "E-Invoice Connection",
+   "hidden": 0,
+   "is_query_report": 0,
+   "onboard": 0,
+   "dependencies": "",
+   "only_for": ""
+  }
+ ],
+ "title": "E-Invoicing",
+ "modified": "2026-11-22 09:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "E-Invoicing",
+ "name": "E-Invoicing",
+ "number_cards": [
+  {
+   "label": "Awaiting Submission",
+   "number_card_name": "Awaiting Submission"
+  },
+  {
+   "label": "Sent, Awaiting Validation",
+   "number_card_name": "Sent, Awaiting Validation"
+  },
+  {
+   "label": "Accepted E-Invoices",
+   "number_card_name": "Accepted E-Invoices"
+  },
+  {
+   "label": "Rejected E-Invoices",
+   "number_card_name": "Rejected E-Invoices"
+  },
+  {
+   "label": "Failed E-Invoices",
+   "number_card_name": "Failed E-Invoices"
+  }
+ ],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [],
+ "sequence_id": 32.0,
+ "shortcuts": [
+  {
+   "label": "E-Invoice Submission",
+   "link_to": "E-Invoice Submission",
+   "type": "DocType",
+   "doc_view": "List"
+  },
+  {
+   "label": "E-Invoice Connection",
+   "link_to": "E-Invoice Connection",
+   "type": "DocType",
+   "doc_view": "List"
+  }
+ ]
+}

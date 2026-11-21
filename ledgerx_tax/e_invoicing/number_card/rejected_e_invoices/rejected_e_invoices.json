@@ -1,0 +1,20 @@
+{
+ "creation": "2026-11-22 09:00:00.000000",
+ "docstatus": 0,
+ "doctype": "Number Card",
+ "document_type": "E-Invoice Submission",
+ "filters_json": "[[\"E-Invoice Submission\", \"status\", \"=\", \"Rejected\"]]",
+ "function": "Count",
+ "idx": 0,
+ "is_public": 1,
+ "is_standard": 1,
+ "label": "Rejected E-Invoices",
+ "modified": "2026-11-22 09:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "E-Invoicing",
+ "name": "Rejected E-Invoices",
+ "owner": "Administrator",
+ "show_percentage_stats": 0,
+ "stats_time_interval": "Daily",
+ "type": "Document Type"
+}
