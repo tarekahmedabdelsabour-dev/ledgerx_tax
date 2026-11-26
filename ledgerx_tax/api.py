@@ -17,7 +17,7 @@ def _conn(name):
 	return frappe.get_doc("E-Invoice Connection", name)
 
 
-@frappe.whitelist()
+@frappe.whitelist(methods=["POST"])
 def send_now(invoice):
 	_check()
 	frappe.has_permission("Sales Invoice", "read", invoice, throw=True)
@@ -27,7 +27,7 @@ def send_now(invoice):
 	return name
 
 
-@frappe.whitelist()
+@frappe.whitelist(methods=["POST"])
 def retry(submission):
 	_check()
 	frappe.db.set_value("E-Invoice Submission", submission, {"status": "Pending", "attempts": 0})
@@ -35,7 +35,7 @@ def retry(submission):
 	return submission
 
 
-@frappe.whitelist()
+@frappe.whitelist(methods=["POST"])
 def refresh(submission):
 	_check()
 	return jobs.refresh(submission)
@@ -45,6 +45,7 @@ def refresh(submission):
 def preview(invoice):
 	"""What would be sent, without sending it."""
 	_check()
+	frappe.has_permission("Sales Invoice", "read", invoice, throw=True)
 	si = frappe.get_doc("Sales Invoice", invoice)
 	conn = data.connection_for(si.company)
 	if not conn:
@@ -72,7 +73,7 @@ def preview(invoice):
 	return generic.render(cfg["body_template"], inv, cfg)
 
 
-@frappe.whitelist()
+@frappe.whitelist(methods=["POST"])
 def test_connection(connection):
 	conn = _conn(connection)
 	cfg = data.cfg_of(conn)
@@ -87,7 +88,7 @@ def _log(conn, text):
 	frappe.db.set_value("E-Invoice Connection", conn.name, "onboarding_status", ((conn.onboarding_status or "") + "\n" + text).strip()[-2000:])
 
 
-@frappe.whitelist()
+@frappe.whitelist(methods=["POST"])
 def zatca_generate_csr(connection):
 	conn = _conn(connection)
 	cfg = data.cfg_of(conn)
@@ -99,7 +100,7 @@ def zatca_generate_csr(connection):
 	return "Created. Get the one-time code from the ZATCA portal, enter it on the connection, then press Get Compliance Certificate."
 
 
-@frappe.whitelist()
+@frappe.whitelist(methods=["POST"])
 def zatca_compliance_csid(connection):
 	conn = _conn(connection)
 	if not conn.csr or not conn.zatca_otp:
@@ -112,7 +113,7 @@ def zatca_compliance_csid(connection):
 	return "Compliance certificate received. Now press Run Compliance Checks."
 
 
-@frappe.whitelist()
+@frappe.whitelist(methods=["POST"])
 def zatca_run_compliance(connection):
 	conn = _conn(connection)
 	cfg = data.cfg_of(conn)
@@ -123,7 +124,7 @@ def zatca_run_compliance(connection):
 	return ("All sample invoices passed.\n" if ok else "Some sample invoices failed:\n") + "\n".join(lines)
 
 
-@frappe.whitelist()
+@frappe.whitelist(methods=["POST"])
 def zatca_production_csid(connection):
 	conn = _conn(connection)
 	cfg = data.cfg_of(conn)
