@@ -30,6 +30,9 @@ def send_now(invoice):
 @frappe.whitelist(methods=["POST"])
 def retry(submission):
 	_check()
+	status = frappe.db.get_value("E-Invoice Submission", submission, "status", for_update=True)
+	if status not in ("Failed", "Pending"):
+		frappe.throw(_("Only a failed or pending submission can be sent again. This one is {0}.").format(status))
 	frappe.db.set_value("E-Invoice Submission", submission, {"status": "Pending", "attempts": 0})
 	frappe.enqueue("ledgerx_tax.jobs.process", sub=submission, queue="short", enqueue_after_commit=True)
 	return submission

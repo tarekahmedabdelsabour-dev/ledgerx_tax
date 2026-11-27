@@ -99,10 +99,12 @@ def retry_pending():
 			doc.save(ignore_permissions=True)
 			process(r)
 		except Exception:
+			frappe.db.rollback()
 			frappe.log_error(title=f"E-invoice retry {r}")
 	for r in frappe.get_all("E-Invoice Submission", filters={"status": "Submitted"}, pluck="name", limit=100):
 		try:
 			refresh(r)
 			frappe.db.commit()
 		except Exception:
+			frappe.db.rollback()
 			frappe.log_error(title=f"E-invoice check {r}")
